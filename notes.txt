@@ -1,0 +1,5 @@
+# Have to run stow with .dotfiles in home directory, but if you want to change that, commands are below
+stow --dir=~/.dotfiles --target=~/
+
+# To get rid of all the symbolic links
+stow -D .

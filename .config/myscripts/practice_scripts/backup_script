@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Author: Tim Christy
+# Date Created: 2022-11-26
+# Date Modified: 2022-11-26
+
+# Description:
+# Backs up the home directory in a tar
+
+# Usage:
+# Just run backup_script in the shell
+
+# , lowercases first letter
+# ,, lowercases all letters
+# ^ uppercase first letter
+# ^^ uppercase all letters
+# # count number of letters
+# ${variable:start:length} - slicing
+
+# Print out the following two lines to the user's screen when the script
+# is run
+echo "Hello ${USER^},"
+echo "I will now back up your home directory, {$HOME}"
+
+# Create a variable called currentdir and store the pwd
+currentdir=$(pwd)
+
+# Let the user know where the back up will be saved
+echo "You are running this script from ${currentdir}."
+echo "Therefore, I will save the backup in ${currentdir}"
+
+# tar the backup
+tar -cf "${currentdir}"/home_bak_"$(date +%Y-%m-%d_%H_%M_%S)".tar "${HOME}"/* 2> /dev/null
+
+# Echo completed
+echo "Backup Completed Successfully."
+
+exit 0
+

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# in bash it is customary to name user-defined variables as all lowercase
+# as opposed to SHELL variables which are all uppercase
+student="Sarah"
+echo "Hello ${student}"
