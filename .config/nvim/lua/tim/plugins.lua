@@ -8,9 +8,9 @@ local ensure_packer = function()
     print('Packer not installed. Installing now...')
     fn.system({
       'git',
-      'clone', 
+      'clone',
       '--depth',
-      '1', 
+      '1',
       'https://github.com/wbthomason/packer.nvim',
       install_path,
     })
@@ -24,8 +24,8 @@ end
 local packer_bootstrap = ensure_packer()
 
 -- Packer popup window rather than vertical split default
-compiled_path = vim.fn.stdpath('config') .. 'plugin/packer_compiled.lua'
-packer = require('packer')
+local compiled_path = vim.fn.stdpath('config') .. 'plugin/packer_compiled.lua'
+local packer = require('packer')
 packer.init {
   display = {
     open_fn = function()
@@ -62,9 +62,9 @@ return require('packer').startup(function(use)
   use 'sainnhe/everforest'
 
   -- LSP
-  use 'neovim/nvim-lspconfig'
   use 'williamboman/mason.nvim'  -- next generation of nvim-lsp-installer
   use 'williamboman/mason-lspconfig.nvim'  -- recommended install for above
+  use 'neovim/nvim-lspconfig'
   use 'jose-elias-alvarez/null-ls.nvim'  -- for formatters and linters
   use 'RRethy/vim-illuminate'
 
@@ -79,7 +79,26 @@ return require('packer').startup(function(use)
 	-- Snippets
   use 'L3MON4D3/LuaSnip'  --snippet engine
   use 'rafamadriz/friendly-snippets'  -- a bunch of snippets to use
-  
+
+  -- TreeSitter
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+
+  -- NvimTree
+  use {'nvim-tree/nvim-tree.lua',
+        requires = {
+          'nvim-tree/nvim-web-devicons',
+      },
+      tag = 'nightly'
+    }
+
+  -- Barbar
+  use 'nvim-tree/nvim-web-devicons'
+  use {'romgrk/barbar.nvim', wants = 'nvim-web-devicons'}
+
+  -- Lualine
+  use { 'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+      }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
