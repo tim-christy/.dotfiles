@@ -36,9 +36,9 @@ packer.init {
   git = {
     clone_timeout = 300,
   },
-  working_sym = "勒", -- The symbol for a plugin being installed/updated
-  error_sym = "✗", -- The symbol for a plugin with an error in installation/updating
-  done_sym = "✓", -- The symbol for a plugin which has completed installation/updating
+  working_sym = '勒', -- The symbol for a plugin being installed/updated
+  error_sym = '✗', -- The symbol for a plugin with an error in installation/updating
+  done_sym = '✓', -- The symbol for a plugin which has completed installation/updating
 }
 
 
@@ -48,18 +48,38 @@ vim.api.nvim_create_autocmd({'BufWritePost'}, {
   pattern = 'plugins.lua',
   group = packer_group,
   callback = function()
-    dofile(vim.fn.expand("%"))  -- dofile reloads this script (%)
+    dofile(vim.fn.expand('%'))  -- dofile reloads this script (%)
     vim.cmd[[PackerSync]]
   end,
 })
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
-
+  use 'nvim-lua/plenary.nvim'
   -- colorschemes
   use 'EdenEast/nightfox.nvim'
   use 'sainnhe/gruvbox-material'
   use 'sainnhe/everforest'
+
+  -- LSP
+  use 'neovim/nvim-lspconfig'
+  use 'williamboman/mason.nvim'  -- next generation of nvim-lsp-installer
+  use 'williamboman/mason-lspconfig.nvim'  -- recommended install for above
+  use 'jose-elias-alvarez/null-ls.nvim'  -- for formatters and linters
+  use 'RRethy/vim-illuminate'
+
+  -- Cmp 
+  use 'hrsh7th/nvim-cmp'  -- The completion plugin
+  use 'hrsh7th/cmp-buffer'  -- buffer completions
+  use 'hrsh7th/cmp-path'  -- path completions
+	use 'saadparwaiz1/cmp_luasnip'  -- snippet completions
+	use 'hrsh7th/cmp-nvim-lsp'
+	use 'hrsh7th/cmp-nvim-lua'
+
+	-- Snippets
+  use 'L3MON4D3/LuaSnip'  --snippet engine
+  use 'rafamadriz/friendly-snippets'  -- a bunch of snippets to use
+  
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
