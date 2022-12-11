@@ -124,6 +124,9 @@ return require('packer').startup(function(use)
   -- Comments
   use { 'numToStr/Comment.nvim' }
 
+  -- Python REPL
+  use { 'geg2102/nvim-python-repl' }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
