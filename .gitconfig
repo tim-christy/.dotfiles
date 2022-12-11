@@ -3,3 +3,5 @@
 	name = tim-christy
 [init]
 	defaultBranch = main
+[core]
+  editor = nvim
