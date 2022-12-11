@@ -91,6 +91,17 @@ return require('packer').startup(function(use)
       tag = 'nightly'
     }
 
+  -- Telescope
+  use {'nvim-telescope/telescope.nvim', tag ='0.1.0',
+        requires = {{'nvim-lua/plenary.nvim'}}
+  }
+    -- Suggested dependencies for telescope
+    use {'BurntSushi/ripgrep'} -- required for live_grep and grep_string Telescope
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use {'sharkdp/fd'} -- optional dependency for telescope
+    -- Preview images with telescope 
+    use {'nvim-lua/popup.nvim'}
+    use {'nvim-telescope/telescope-media-files.nvim'}  -- uberzug dependency no longer maintained
   -- Barbar
   use 'nvim-tree/nvim-web-devicons'
   use {'romgrk/barbar.nvim', wants = 'nvim-web-devicons'}
