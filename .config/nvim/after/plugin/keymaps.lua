@@ -42,3 +42,8 @@ keymap("n", "<Down>", "<CMD>resize +1<CR>", default_opts)
 
 -- Run a live server
 keymap('n', '<leader>rls', '<cmd>term live-server %<cr><cmd>bp<cr>', default_opts)
+-- Telescope
+keymap('n', '<leader>ff', '<cmd>Telescope find_files<cr>', opts)
+keymap('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', opts)
+keymap('n', '<leader>fb', '<cmd>Telescope buffers<cr>', opts)
+keymap('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', opts)
