@@ -102,6 +102,13 @@ return require('packer').startup(function(use)
     -- Preview images with telescope 
     use {'nvim-lua/popup.nvim'}
     use {'nvim-telescope/telescope-media-files.nvim'}  -- uberzug dependency no longer maintained
+
+
+  -- DAP
+  -- use { "mfussenegger/nvim-dap"}
+  -- use { "rcarriga/nvim-dap-ui"}
+  -- use { "ravenxrz/DAPInstall.nvim"}
+
   -- Barbar
   use 'nvim-tree/nvim-web-devicons'
   use {'romgrk/barbar.nvim', wants = 'nvim-web-devicons'}
