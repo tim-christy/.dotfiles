@@ -3,7 +3,8 @@
 require('tim.core.utils').setup_configs()
 
 -- Import plugins file (i.e. packer)
-require('tim.plugins')
+require('tim.core')
 
 -- Configs for the plugins
-require('tim.configs') 
+require('tim.plugins') 
+
